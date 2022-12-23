@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	stack_t *head = NULL;
 	char *buffer = NULL;
 	FILE *fp;
-	size_t line_number;
+	size_t n;
 
 	if (argc != 2)
 	{
@@ -26,11 +26,11 @@ int main(int argc, char *argv[])
 	fp = open(argv[1], "r+");
 	if (fp == NULL)
 	{
-		printf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 
-	while ((getline(&buffer, &line_number, fp)) != -1)
+	while ((getline(&buffer, &n, fp)) != -1)
 	{
 		i++;
 		tokens = tokenize(buffer);
