@@ -13,18 +13,21 @@ void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 
 	if (temp == NULL)
 	{
-		printf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	temp->n = data;
-	temp->prev = NULL;
-	temp->next = NULL;
-	if (*stack != NULL)
+
+	temp->prev = temp->next = NULL;
+
+	if (!(*stack))
+		(*stack) = temp;
+	else
 	{
-	temp->next = *stack;
-	(*stack)->prev = temp;
+		(*stack)->prev = temp;
+		temp->next = *stack;
+		*stack = temp;
 	}
-	*stack = temp;
 }
 /**
  * pall - print all data in stack
