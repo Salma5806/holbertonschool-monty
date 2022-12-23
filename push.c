@@ -3,7 +3,7 @@
 /**
 * _push - push a node onto the stack
 * @stack: stack
-* @line_number: line number in monty.m file
+* @n: line number in monty.m file
 * Return: void
 */
 void _push(stack_t **stack, unsigned int n)
