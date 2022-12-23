@@ -42,7 +42,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	while (tmp != NULL)
 	{
-		fprintf("%d\n", tmp->n);
+		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
 }
