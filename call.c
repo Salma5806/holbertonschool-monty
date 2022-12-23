@@ -5,7 +5,7 @@ static instruction_t ops[] = {
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
-		{"nop", nop},
+		{"nop", NULL},
 		{"pint", pint},
 		{NULL, NULL}
 	};
@@ -28,7 +28,7 @@ void call(char **tokens, stack_t **stack)
 		if (strcmp(tokens[0], ops[idx].opcode) == 0)
 		{
 			if (ops[idx].f)
-				ops[idx].f(stack, line_number);
+				ops[idx].f(stack, i);
 			break;
 		}
 		idx++;
