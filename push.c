@@ -6,44 +6,48 @@
 * @line_number: line number in monty.m file
 * Return: void
 */
-void _push(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void _push(stack_t **stack, unsigned int n)
 {
-	stack_t *temp;
-	temp = malloc(sizeof(stack_t));
+	stack_t *node = NULL;
+	(void) n;
 
-	if (temp == NULL)
+	node = malloc(sizeof(stack_t));
+	if (!node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 
-	temp->prev = temp->next = NULL;
+	node->prev = node->next = NULL;
 
 	if (!(*stack))
-		(*stack) = temp;
+		(*stack) = node;
 	else
 	{
-		(*stack)->prev = temp;
-		temp->next = *stack;
-		*stack = temp;
+		(*stack)->prev = node;
+		node->next = *stack;
+		*stack = node;
 	}
 }
 /**
- * _pall - print all data in stack
- * @stack: stack
- * @line_number: line number in monty .m file
- * Return: void
+ * _pall - prints a stack
+ * @stack: pointer to a stack_t
+ * @n: line number
  */
-void _pall(stack_t **stack, unsigned int line_number)
+void _pall(stack_t **stack, unsigned int n)
 {
-	stack_t *tmp = *stack;
+	stack_t *node, *head;
+	(void) n;
 
-	(void) line_number;
-	while (tmp != NULL)
+	if (!stack || !(*stack))
+		return;
+	node = head = *stack;
+
+	while (node)
 	{
-		printf("%d\n", tmp->n);
-		tmp = tmp->next;
+		fprintf(stdout, "%d\n", node->n);
+		node = node->next;
 	}
 }
 /**
