@@ -58,7 +58,7 @@ void valid(char **token, stack_t **stack)
 
 	if (!token[1])
 	{
-		printf(stderr, "L%u: usage: push integer\n", line_number);
+		printf(stderr, "L%u: usage: push integer\n", i);
 		if (*stack)
 			free_stack(stack);
 		free(token);
