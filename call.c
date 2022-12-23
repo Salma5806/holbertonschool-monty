@@ -1,4 +1,14 @@
 #include "monty.h"
+static instruction_t ops[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+		{"pint", pint},
+		{NULL, NULL}
+	};
 
 /**
  * call - call appropriate function
