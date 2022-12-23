@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
-* push - push a node onto the stack
+* _push - push a node onto the stack
 * @stack: stack
 * @line_number: line number in monty.m file
 * Return: void
 */
-void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void _push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	stack_t *temp;
 	temp = malloc(sizeof(stack_t));
@@ -30,12 +30,12 @@ void push(stack_t **stack, unsigned int line_number __attribute__((unused)))
 	}
 }
 /**
- * pall - print all data in stack
+ * _pall - print all data in stack
  * @stack: stack
  * @line_number: line number in monty .m file
  * Return: void
  */
-void pall(stack_t **stack, unsigned int line_number)
+void _pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
 
@@ -47,12 +47,12 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 /**
- * pint - print top int
+ * _pint - print top int
  * @stack: stack
  * @line_number: line number in monty .m file
  * Return: void
  */
-void pint(stack_t **stack, unsigned int line_number)
+void _pint(stack_t **stack, unsigned int line_number)
 {
 	if (!stack || !(*stack))
 	{
