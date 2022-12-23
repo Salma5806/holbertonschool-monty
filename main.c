@@ -1,6 +1,6 @@
 #include "monty.h"
 
-unsigned int line_number = 0;
+unsigned int i = 0;
 
 /**
  * main - control program flow
