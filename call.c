@@ -1,13 +1,13 @@
 #include "monty.h"
 
 static instruction_t ops[] = {
-		{"push", _push},
-		{"pall", _pall},
-		{"pop", _pop},
-		{"swap", _swap},
-		{"add", _add},
+		{"push", push},
+		{"pall", pall},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
 		{"nop", NULL},
-		{"pint", _pint},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 /**
