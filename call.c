@@ -1,15 +1,15 @@
 #include "monty.h"
+
 static instruction_t ops[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
+		{"push", _push},
+		{"pall", _pall},
+		{"pop", _pop},
+		{"swap", _swap},
+		{"add", _add},
 		{"nop", NULL},
-		{"pint", pint},
+		{"pint", _pint},
 		{NULL, NULL}
 	};
-
 /**
  * call - call appropriate function
  * @tokens: pointer to array of tokens
@@ -47,8 +47,9 @@ void call(char **tokens, stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 }
+
 /**
- * valid - check if second spot of a token array is valid
+ * is_valid - check if second spot of a token array is valid
  * @token: tokens value to check
  * @stack: pointer to a stack
  */
@@ -58,7 +59,7 @@ void is_valid(char **token, stack_t **stack)
 
 	if (!token[1])
 	{
-		fprintf(stderr, "L%u: usage: push integer\n", i);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		if (*stack)
 			free_stack(stack);
 		free(token);
@@ -71,7 +72,7 @@ void is_valid(char **token, stack_t **stack)
 			idx++;
 		if (isdigit(token[1][idx]) == 0)
 		{
-			printf(stderr, "L%u: usage: push integer\n", line_number);
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			if (*stack)
 				free_stack(stack);
 			free(token);
@@ -80,4 +81,3 @@ void is_valid(char **token, stack_t **stack)
 		idx++;
 	}
 }
-
