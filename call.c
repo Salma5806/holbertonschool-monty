@@ -36,12 +36,12 @@ void call(char **tokens, stack_t **stack)
 
 	if (strcmp(tokens[0], "push") == 0)
 	{
-		valid(tokens, stack);
+		is_valid(tokens, stack);
 		(*stack)->n = atoi(tokens[1]);
 	}
 	else if (!(ops[idx].opcode))
 	{
-		printf(stderr, "L%u: unknown instruction %s\n",
+		fprintf(stderr, "L%u: unknown instruction %s\n",
 				line_number,
 				tokens[0]);
 		exit(EXIT_FAILURE);
@@ -52,7 +52,7 @@ void call(char **tokens, stack_t **stack)
  * @token: tokens value to check
  * @stack: pointer to a stack
  */
-void valid(char **token, stack_t **stack)
+void is_valid(char **token, stack_t **stack)
 {
 	int idx = 0;
 
