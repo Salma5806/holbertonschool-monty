@@ -58,7 +58,7 @@ void is_valid(char **token, stack_t **stack)
 
 	if (!token[1])
 	{
-		printf(stderr, "L%u: usage: push integer\n", i);
+		fprintf(stderr, "L%u: usage: push integer\n", i);
 		if (*stack)
 			free_stack(stack);
 		free(token);
