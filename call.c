@@ -28,7 +28,7 @@ void call(char **tokens, stack_t **stack)
 		if (strcmp(tokens[0], ops[idx].opcode) == 0)
 		{
 			if (ops[idx].f)
-				ops[idx].f(stack, i);
+				ops[idx].f(stack, line_number);
 			break;
 		}
 		idx++;
