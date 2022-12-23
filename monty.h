@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <string.h>
+extern unsigned int line_number;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
