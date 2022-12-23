@@ -42,7 +42,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	while (tmp != NULL)
 	{
-		printf("%d\n", tmp->n);
+		fprintf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
 }
@@ -54,13 +54,11 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = *stack;
-
-	if (tmp == NULL)
+	if (!stack || !(*stack))
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
-		exit_free(*stack);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", n);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", tmp->n);
+
+	fprintf(stdout, "%d\n", (*stack)->n);
 }
