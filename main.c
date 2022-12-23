@@ -10,7 +10,6 @@ unsigned int line_number = 0;
  */
 int main(int argc, char *argv[])
 {
-	unsigned int  i = 0;
 	char **tokens = NULL;
 	stack_t *head = NULL;
 	char *buffer = NULL;
@@ -23,7 +22,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	fp = open(argv[1], "r+");
+	fp = fopen(argv[1], "r+");
 	if (fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
